@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Flex, Button, Text, Heading } from "@chakra-ui/react";
-import Image from 'next/image'
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
@@ -14,7 +13,7 @@ const Home: NextPage = () => {
           <Text>
             Signed in as {session?.user?.email} <br />
             {session?.user?.name}
-            <img src={session?.user?.image || "https://i.imgur.com/a7s4g5B.jpeg"}  alt="" width={200}></img>
+            <img src={session?.user?.image || "https://i.imgur.com/a7s4g5B.jpeg"}  alt="profile" width={200}></img>
           </Text>
           <Button onClick={() => signOut()}>Sign out</Button>
         </>

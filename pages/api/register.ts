@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "../../lib/dbConnect";
 import User from "../../model/User";
-import ids from "../../model/id";
 import bcrypt from "bcrypt";
 
 interface ResponseData {
@@ -54,7 +53,7 @@ export default async function handler(
   }
 
   // get and validate body variables
-  const { username, email, password, UserId } = req.body;
+  const { username, email, password } = req.body;
 
   const errorMessage = await validateForm(username, email, password);
   if (errorMessage) {
